@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: -4549671968893688407}
   - component: {fileID: 5775550367907316958}
   - component: {fileID: 341297110917417341}
-  - component: {fileID: 3832151941426154511}
-  - component: {fileID: -2910837881194010019}
+  - component: {fileID: -3074407588924103041}
+  - component: {fileID: -1271130114458238012}
   m_Layer: 0
   m_Name: Fox Prefab
   m_TagString: Untagged
@@ -170,7 +170,7 @@ CircleCollider2D:
   m_Offset: {x: 0.10999997, y: -0.0352028}
   serializedVersion: 2
   m_Radius: 0.3901388
---- !u!114 &3832151941426154511
+--- !u!114 &-3074407588924103041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,13 +179,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 159179862701767016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbed03b1a5dc5f9409ce670f5ef3997e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9343b73b063a443438521019688fa794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  animator: {fileID: 620262575743458834}
+  runSpeed: 40
+--- !u!114 &-1271130114458238012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159179862701767016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f9aafae26da014ebe778a9154ad77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 400
-  m_CrouchSpeed: 0.19
-  m_MovementSmoothing: 0.044
-  m_AirControl: 1
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 0
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -198,16 +213,3 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-2910837881194010019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159179862701767016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64dcbddcf1a627941894116b98bf3049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 3832151941426154511}
