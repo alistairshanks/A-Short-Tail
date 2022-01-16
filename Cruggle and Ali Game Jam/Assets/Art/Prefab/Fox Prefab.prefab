@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 620262575743458834}
   - component: {fileID: -4549671968893688407}
   - component: {fileID: 5775550367907316958}
-  - component: {fileID: 7173293701687336533}
+  - component: {fileID: 341297110917417341}
+  - component: {fileID: 3832151941426154511}
+  - component: {fileID: -2910837881194010019}
   m_Layer: 0
   m_Name: Fox Prefab
   m_TagString: Untagged
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: 3527470048382739123, guid: d8379c209dd0b154ea890613d1eb29ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,7 +154,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99462545, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &7173293701687336533
+--- !u!58 &341297110917417341
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159179862701767016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10999997, y: -0.0352028}
+  serializedVersion: 2
+  m_Radius: 0.3901388
+--- !u!114 &3832151941426154511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +179,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 159179862701767016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1e5b363cea0624d8379f4eeb1ba68f, type: 3}
+  m_Script: {fileID: 11500000, guid: dbed03b1a5dc5f9409ce670f5ef3997e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  m_JumpForce: 400
+  m_CrouchSpeed: 0.19
+  m_MovementSmoothing: 0.044
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  m_GroundCheck: {fileID: 0}
+  m_CeilingCheck: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-2910837881194010019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159179862701767016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dcbddcf1a627941894116b98bf3049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3832151941426154511}
