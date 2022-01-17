@@ -5,16 +5,13 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public float speed;
-
     private bool movingRight = true;
-
     public bool goLeft;
-
     int direction = 1;
-
     public Transform groundDetection;
-
+    public Transform wallDetection;
     bool isFacingRight = true;
+
 
     Rigidbody2D rigidbody2D;
     private void Start()
@@ -30,7 +27,8 @@ public class EnemyScript : MonoBehaviour
         Vector2 position = rigidbody2D.position;
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
-        if (groundInfo.collider == false)
+        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
+        if (groundInfo.collider == false || wallInfo.collider == true)
         {
             goLeft = !goLeft;
 
