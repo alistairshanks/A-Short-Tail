@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
                 timeRemaining -= Time.deltaTime;
             }
 
+
+
+
+
+
             else
             {
                 Debug.Log("time has run out");
@@ -58,11 +63,43 @@ public class PlayerMovement : MonoBehaviour
                 timerIsRunning = false;
 
                 animator.SetBool("TimePassedSleep", true);
+                animator.SetBool("TimePassed", false); 
 
+            }
+
+     
+
+        }
+
+        if(timerIsRunning)
+
+        {
+            if (timeRemaining < 7)
+            {
+                animator.SetBool("TimePassed", true);
             }
 
 
         }
+
+        
+
+        
+           
+
+        if (horizontalMove > 0.0f)
+
+        {
+            timeRemaining = 10;
+            timerIsRunning = true;
+            animator.SetBool("TimePassedSleep", false);
+            animator.SetBool("TimePassed", false);
+        }
+
+        
+            
+
+        
     }
 
         public void Onlanding()
@@ -76,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
             jump = false;
+
         }
 
 
