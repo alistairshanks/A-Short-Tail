@@ -1168,7 +1168,7 @@ GameObject:
   - component: {fileID: 1254415977}
   m_Layer: 0
   m_Name: Fox Character (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1387,7 +1387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254415976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.42, y: -3.58, z: 0}
+  m_LocalPosition: {x: -5.26, y: -3.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1607223535}
@@ -1419,7 +1419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340244684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.399, y: -0.801, z: 0}
+  m_LocalPosition: {x: 0.46, y: -0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049170505}
@@ -2981,26 +2981,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -4, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 10
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 4, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 10
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -3033,7 +3013,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: f6495ed153664c84cb6426c99aafec32, type: 2}
   - m_RefCount: 101
     m_Data: {fileID: 11400000, guid: 0ef6d92c1afa76047b63e6a668d7eaf3, type: 2}
-  - m_RefCount: 30
+  - m_RefCount: 28
     m_Data: {fileID: 11400000, guid: 35d5610d211ce9549bf8bc61a3b9f59f, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -3066,10 +3046,10 @@ Tilemap:
     m_Data: {fileID: -3812786896775926999, guid: c3898e0a23fceff4da073bb553cfeb57, type: 3}
   - m_RefCount: 101
     m_Data: {fileID: -6045269988124551188, guid: c3898e0a23fceff4da073bb553cfeb57, type: 3}
-  - m_RefCount: 30
+  - m_RefCount: 28
     m_Data: {fileID: -8333202958171376367, guid: c3898e0a23fceff4da073bb553cfeb57, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 147
+  - m_RefCount: 145
     m_Data:
       e00: 1
       e01: 0
@@ -3108,7 +3088,7 @@ Tilemap:
     m_Data: {r: 2.7998e-41, g: 2.7998e-41, b: 2.7998e-41, a: 2.7998e-41}
   - m_RefCount: 0
     m_Data: {r: 2.7998e-41, g: 2.7998e-41, b: 2.7998e-41, a: 2.7998e-41}
-  - m_RefCount: 147
+  - m_RefCount: 145
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3572,11 +3552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872054888394117229, guid: daf40fbd53614d545a6c227416362e62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.46
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 3872054888394117229, guid: daf40fbd53614d545a6c227416362e62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.13
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 3872054888394117229, guid: daf40fbd53614d545a6c227416362e62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3715,10 +3695,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049170501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b671c1029cd9f4642b55717be1a91fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: a634503d0a998f14e80c3393b3b79427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   goLeft: 0
   groundDetection: {fileID: 1340244685}
   wallDetection: {fileID: 1993812963}
+  animator: {fileID: 2049170502}
