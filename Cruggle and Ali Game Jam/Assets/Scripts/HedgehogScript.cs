@@ -5,22 +5,23 @@ using UnityEngine;
 public class HedgehogScript : MonoBehaviour
 {
     public float speed;
-    private bool movingRight = true;
-    public bool goLeft;
+    public bool goingLeft;
     int direction = 1;
     public Transform groundDetection;
     public Transform wallDetection;
     bool isFacingRight = true;
     private RaycastHit2D playerInfo;
     public Animator animator;
-   
+    Vector2 position;
 
 
-    Rigidbody2D rigidbody2D;
+
+
+    Rigidbody2D myRigidbody;
     private void Start()
     {
         
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
 
     }
 
@@ -28,7 +29,7 @@ public class HedgehogScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (goLeft == true)
+        if (goingLeft == true)
         {
             playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, 20f);
 
@@ -44,25 +45,27 @@ public class HedgehogScript : MonoBehaviour
         {
             animator.SetBool("CharacterTrigger", true);
             Debug.Log("hedgehog can sense the player");
-            
+
+
+            position.x = transform.localPosition.x;
         }
         else
       
         {
-          //  animator.SetBool("CharacterTrigger", false);
+            animator.SetBool("CharacterTrigger", false);
 
-            Vector2 position = rigidbody2D.position;
+            position = myRigidbody.position;
 
             RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
             RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
-            if (groundInfo.collider == false || wallInfo.collider == true)
+            if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
             {
-                goLeft = !goLeft;
+                goingLeft = !goingLeft;
 
                 Flip();
             }
 
-           if (goLeft)
+           if (goingLeft)
             {
                 position.x = position.x + Time.deltaTime * speed * -direction;
             }
@@ -70,10 +73,9 @@ public class HedgehogScript : MonoBehaviour
             {
                 position.x = position.x + Time.deltaTime * speed * direction;
 
-
             }
 
-            rigidbody2D.MovePosition(position);
+            myRigidbody.MovePosition(position);
         }
 
         {

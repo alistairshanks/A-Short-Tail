@@ -2080,7 +2080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  goLeft: 0
+  goingLeft: 0
   groundDetection: {fileID: 1082571347}
   wallDetection: {fileID: 198578968}
   animator: {fileID: 1717863874}
@@ -3004,6 +3004,14 @@ PrefabInstance:
     - target: {fileID: 6880966078788546748, guid: 9b3c8b9dbfca36843870c856abda7480, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880966078788546749, guid: 9b3c8b9dbfca36843870c856abda7480, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880966078788546749, guid: 9b3c8b9dbfca36843870c856abda7480, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1605980221
       objectReference: {fileID: 0}
     - target: {fileID: 6880966078788546751, guid: 9b3c8b9dbfca36843870c856abda7480, type: 3}
       propertyPath: m_Name
