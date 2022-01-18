@@ -37,13 +37,14 @@ public class HedgehogScript : MonoBehaviour
         {
 
             playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 20f);
-
+            
         }
 
         if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
         {
             animator.SetBool("CharacterTrigger", true);
             Debug.Log("hedgehog can sense the player");
+            
         }
         else
       
@@ -61,7 +62,7 @@ public class HedgehogScript : MonoBehaviour
                 Flip();
             }
 
-            if (goLeft)
+           if (goLeft)
             {
                 position.x = position.x + Time.deltaTime * speed * -direction;
             }
@@ -74,6 +75,12 @@ public class HedgehogScript : MonoBehaviour
 
             rigidbody2D.MovePosition(position);
         }
+
+        {
+            animator.SetFloat("Speed", Mathf.Abs(speed));
+        }
+
+        
         
     }
 
