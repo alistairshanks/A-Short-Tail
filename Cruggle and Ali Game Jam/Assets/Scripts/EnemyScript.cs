@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public float speed;
-    private bool movingRight = true;
     public bool goLeft;
     int direction = 1;
     public Transform groundDetection;
@@ -13,10 +12,10 @@ public class EnemyScript : MonoBehaviour
     bool isFacingRight = true;
 
 
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D myRigidBody;
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     
@@ -24,7 +23,7 @@ public class EnemyScript : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Vector2 position = rigidbody2D.position;
+        Vector2 position = myRigidBody.position;
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
@@ -46,7 +45,7 @@ public class EnemyScript : MonoBehaviour
 
         }
 
-        rigidbody2D.MovePosition(position);
+        myRigidBody.MovePosition(position);
     }
 
     private void Flip()
