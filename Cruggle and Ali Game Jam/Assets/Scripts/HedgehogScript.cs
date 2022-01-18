@@ -68,6 +68,7 @@ public class HedgehogScript : MonoBehaviour
            if (goingLeft)
             {
                 position.x = position.x + Time.deltaTime * speed * -direction;
+                
             }
             else
             {
