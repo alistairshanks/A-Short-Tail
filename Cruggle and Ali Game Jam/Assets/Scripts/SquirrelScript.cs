@@ -11,6 +11,15 @@ public class SquirrelScript : MonoBehaviour
     public Transform wallDetection;
     bool isFacingRight = true;
     public Animator animator;
+    public float TimeRemaining = 5;
+    public bool timerIsRunning = false;
+    float randomFloat = Random.value;
+   
+    
+    
+    
+
+    
     
 
 
@@ -18,13 +27,30 @@ public class SquirrelScript : MonoBehaviour
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+
+        timerIsRunning = true;
+
+        if (Random.value < 0.1f)
+        {
+            Debug.Log("success");
+        }
+
     }
 
+ 
 
 
-    private void FixedUpdate()
+
+
+
+
+private void FixedUpdate()
     {
-        {
+        
+
+        
+
+            {
 
             Vector2 position = myRigidBody.position;
 
@@ -36,6 +62,7 @@ public class SquirrelScript : MonoBehaviour
 
                 Flip();
             }
+
 
             if (goLeft)
             {
@@ -50,10 +77,36 @@ public class SquirrelScript : MonoBehaviour
 
             }
 
+            if (timerIsRunning)
+            {
+                if (TimeRemaining > 0)
+
+
+                {
+                    TimeRemaining -= Time.deltaTime;
+                }
+
+                else
+                {
+                    TimeRemaining = 5;
+                    
+                    Debug.Log("SquirrelTimer");
+                }
+            }
+
+            
+
+            
+
+
+
+
             myRigidBody.MovePosition(position);
 
 
         }
+
+        
 
 
         
@@ -61,6 +114,8 @@ public class SquirrelScript : MonoBehaviour
 
 
     }
+
+ 
 
     
 
