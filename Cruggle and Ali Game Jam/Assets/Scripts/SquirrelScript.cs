@@ -30,10 +30,6 @@ public class SquirrelScript : MonoBehaviour
 
         timerIsRunning = true;
 
-        if (Random.value < 0.1f)
-        {
-            Debug.Log("success");
-        }
 
     }
 

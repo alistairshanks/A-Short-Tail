@@ -12,6 +12,7 @@ public class HedgehogScript : MonoBehaviour
     bool isFacingRight = true;
     private RaycastHit2D playerInfo;
     public Animator animator;
+
     Vector2 position;
 
 
