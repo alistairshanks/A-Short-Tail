@@ -62,3 +62,6 @@ TagManager:
   - name: Characters
     uniqueID: 2688987075
     locked: 0
+  - name: Mask
+    uniqueID: 3909646593
+    locked: 0
