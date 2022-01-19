@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Apple
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 2688987075
+    locked: 0
+  - name: Mask
+    uniqueID: 638742429
     locked: 0
