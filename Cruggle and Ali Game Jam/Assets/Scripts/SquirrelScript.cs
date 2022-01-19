@@ -12,20 +12,10 @@ public class SquirrelScript : MonoBehaviour
     bool isFacingRight = true;
     public Animator animator;
     public float TimeRemaining = 5;
-    public bool timerIsRunning = false;
-
-    
-    
-   
-    
-    
-    
-
-    
-    
+    public bool IsRunning = false;
 
 
-    Rigidbody2D myRigidBody;
+   Rigidbody2D myRigidBody;
 
 
 
@@ -33,93 +23,53 @@ public class SquirrelScript : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
 
-        timerIsRunning = true;
-
+        InvokeRepeating("SquirrelAnimations", 1.0f, 2f);
 
     }
 
 
-
-
-
-    
 
 
     private void FixedUpdate()
     {
-        
 
-        
+        if (IsRunning == true)
+        {
 
             {
 
-            Vector2 position = myRigidBody.position;
-
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
-            RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
-            if (groundInfo.collider == false || wallInfo.collider == true)
-            {
-                goLeft = !goLeft;
-
-                Flip();
-            }
-
-
-            if (goLeft)
-            {
-                position.x = position.x + Time.deltaTime * speed * -direction;
-                animator.SetFloat("Speed", (speed));
-            }
-            else
-            {
-                position.x = position.x + Time.deltaTime * speed * direction;
-                animator.SetFloat("Speed", (speed));
-
-
-            }
-
-            if (timerIsRunning)
-            {
-                if (TimeRemaining > 0)
-
+                Vector2 position = myRigidBody.position;
 
                 {
-                    TimeRemaining -= Time.deltaTime;
+
+
+                    RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
+                    RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
+                    if (groundInfo.collider == false || wallInfo.collider == true)
+                    {
+                        goLeft = !goLeft;
+
+                        Flip();
+                    }
+
+                    if (goLeft)
+                    {
+                        position.x = position.x + Time.deltaTime * speed * -direction;
+                        animator.SetFloat("Speed", (speed));
+                    }
+                    else
+                    {
+                        position.x = position.x + Time.deltaTime * speed * direction;
+                        animator.SetFloat("Speed", (speed));
+
+                    }
                 }
 
-                else
-                {
-                    TimeRemaining = 5;
-                    
-                    Debug.Log("SquirrelTimer");
-                }
+                myRigidBody.MovePosition(position);
+
             }
-
-            
-
-            
-
-
-
-
-            myRigidBody.MovePosition(position);
-
-
-        }
-
-        
-
-
-        
-        
-
-
+        } 
     }
-
- 
-
-    
-
 
     private void Flip()
     {
@@ -132,4 +82,42 @@ public class SquirrelScript : MonoBehaviour
         transform.localScale = theScale;
 
     }
+
+    void SquirrelAnimations()
+    {
+        float myRandomNumber = Random.value;
+
+        float IdleRandomNumber = Random.value;
+
+        if (myRandomNumber < 0.60)
+        {
+            IsRunning = true;
+            animator.SetBool("Dig", false);
+            animator.SetBool("Nut", false);
+            
+        }
+
+        else if (myRandomNumber > 0.61)
+
+        {
+            IsRunning = false;
+            
+
+            if (IdleRandomNumber <= 0.5)
+            {
+                animator.SetBool("Dig", true);
+                animator.SetBool("Nut", false);
+                
+                
+            }
+
+            else if (IdleRandomNumber <= 0.5)
+            {
+                animator.SetBool("Nut", true);
+                animator.SetBool("Dig", false);
+                
+                
+            }
+        }
+    }       
 }

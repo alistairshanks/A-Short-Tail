@@ -45,7 +45,7 @@ public class HedgehogScript : MonoBehaviour
         if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
         {
             animator.SetBool("CharacterTrigger", true);
-            Debug.Log("hedgehog can sense the player");
+            
 
 
             position.x = transform.localPosition.x;
