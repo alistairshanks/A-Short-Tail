@@ -13,7 +13,9 @@ public class SquirrelScript : MonoBehaviour
     public Animator animator;
     public float TimeRemaining = 5;
     public bool timerIsRunning = false;
-    float randomFloat = Random.value;
+
+    
+    
    
     
     
@@ -24,6 +26,9 @@ public class SquirrelScript : MonoBehaviour
 
 
     Rigidbody2D myRigidBody;
+
+
+
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -33,14 +38,14 @@ public class SquirrelScript : MonoBehaviour
 
     }
 
- 
 
 
 
 
+    
 
 
-private void FixedUpdate()
+    private void FixedUpdate()
     {
         
 
