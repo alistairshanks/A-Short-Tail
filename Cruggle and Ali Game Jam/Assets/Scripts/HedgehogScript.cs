@@ -99,6 +99,9 @@ public class HedgehogScript : MonoBehaviour
             transform.localScale = theScale;
 
         }
-    
+
+   
+
+
 }
 
