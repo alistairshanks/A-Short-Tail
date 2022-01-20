@@ -22,6 +22,8 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	public int maxHealth = 5;
+	public int currentHealth;
 
 	[Header("Events")]
 	[Space]
@@ -149,4 +151,11 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void ChangeHealth(int amount)
+    {
+		currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+		Debug.Log(currentHealth + "/" + maxHealth);
+    }
 }
