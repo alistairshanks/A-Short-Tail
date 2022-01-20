@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float timeRemaining = 10;
     public bool timerIsRunning = false;
+    int currentHealth;
 
     float horizontalMove = 0f;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         timerIsRunning = true;
+
     }
 
     // Update is called once per frame
