@@ -104,7 +104,7 @@ public class SquirrelScript : MonoBehaviour
         }
 
             
-        else if (myRandomNumber > 0.61)
+        else if (myRandomNumber >= 0.61)
 
         {
             //turn off the movement part of the script and set the speed for the animation to 0 which switches it off
