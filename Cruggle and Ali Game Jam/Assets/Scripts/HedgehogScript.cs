@@ -100,8 +100,6 @@ public class HedgehogScript : MonoBehaviour
 
         }
 
-   
-
 
 }
 

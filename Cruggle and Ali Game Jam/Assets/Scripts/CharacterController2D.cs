@@ -23,6 +23,7 @@ public class CharacterController2D : MonoBehaviour
 	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	public int maxHealth = 5;
+	public int health { get { return currentHealth; } }
 	public int currentHealth;
 
 	[Header("Events")]
@@ -47,6 +48,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		currentHealth = maxHealth;
 	}
 
 	private void FixedUpdate()
