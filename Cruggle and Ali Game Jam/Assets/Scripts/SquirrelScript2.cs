@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquirrelScript : MonoBehaviour
+public class SquirrelScript2 : MonoBehaviour
 {
     public float speed;
     public bool isGoingLeft;
@@ -20,11 +20,9 @@ public class SquirrelScript : MonoBehaviour
 
     private void Start()
     {
-        //set rigid body to the one on this object
         myRigidBody = GetComponent<Rigidbody2D>();
 
-        //start the squirrel animations after 1 second, to happen every 2 seconds
-        InvokeRepeating("SquirrelAnimations", 1.0f, 2f);
+        InvokeRepeating("SquirrelAnimations", 0f, 2.5f);
 
     }
 
@@ -49,7 +47,7 @@ public class SquirrelScript : MonoBehaviour
                     {
                         //change whether we are going left or right by inversing the bool
                         isGoingLeft = !isGoingLeft;
-                       
+
                         //flip the local x scale which makes the sprite face the other way
                         Flip();
                     }
@@ -58,13 +56,13 @@ public class SquirrelScript : MonoBehaviour
                     {
                         // if we are going left, set the destination to the left and how long it takes to get there
                         position.x = position.x + Time.deltaTime * speed * -direction;
-                        
+
                     }
-                        // else if we are going right
+                    // else if we are going right
                     else
                     {   // set the destination to the right and how long it takes to get there
                         position.x = position.x + Time.deltaTime * speed * direction;
-                        
+
 
                     }
                 }
@@ -72,7 +70,7 @@ public class SquirrelScript : MonoBehaviour
                 myRigidBody.MovePosition(position);
 
             }
-        } 
+        }
     }
 
     private void Flip()
@@ -84,14 +82,14 @@ public class SquirrelScript : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-
     }
 
     void SquirrelAnimations()
-    {   //generate some random values
+    {
+        //generate some random values
         float myRandomNumber = Random.value;
         float idleRandomNumber = Random.value;
-        
+
         //check if the random value is within a certain range to decide whether we want to run or be idle
         if (myRandomNumber < 0.60)
         {
@@ -100,31 +98,41 @@ public class SquirrelScript : MonoBehaviour
             animator.SetFloat("Speed", (speed));
             animator.SetBool("Dig", false);
             animator.SetBool("Nut", false);
-            
+
         }
 
-            
-        else if (myRandomNumber > 0.61)
+        //check which idle animation we want  to happen
+        else if (myRandomNumber >= 0.61)
 
         {
-            //turn off the movement part of the script and set the speed for the animation to 0 which switches it off
+            //turn off the movement part off the script and set the animation speed to 0, which switches it off
             isRunning = false;
             animator.SetFloat("Speed", (0));
 
-            //check our other random number to see which idle animation will be decided
-            if (idleRandomNumber < 0.5)
+            //check if random number falls in a certain range, if it does, turn on dig animation
+            if (idleRandomNumber < 0.7)
             {
                 animator.SetBool("Dig", true);
                 animator.SetBool("Nut", false);
-                
-                
             }
 
-            else if (idleRandomNumber > 0.5)
+            //if it falls in this range then turn on dig animation and after 1 second invoke "SquirrelFindsNut"
+            else if (idleRandomNumber > 0.7)
+
             {
-                animator.SetBool("Nut", true);
-                animator.SetBool("Dig", false); 
+                animator.SetBool("Dig", true);
+                animator.SetBool("Nut", false);
+                Invoke("SquirrelFindsNut", 1f);
+
             }
         }
     }       
+
+    // a simple function to call from invoke which turns on nut animation and turns off dig animation
+    void SquirrelFindsNut()
+    {
+        animator.SetBool("Dig", false);
+        animator.SetBool("Nut", true);
+
+    }
 }
