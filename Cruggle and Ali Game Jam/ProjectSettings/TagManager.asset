@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Undefined
   - Apple
+  - HedgehogTrigger
   layers:
   - Default
   - TransparentFX
