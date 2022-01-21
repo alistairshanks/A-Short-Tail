@@ -50,7 +50,7 @@ TagManager:
   - name: New Layer
     uniqueID: 3429035583
     locked: 0
-  - name: New Layer
+  - name: BForeground
     uniqueID: 2137425051
     locked: 0
   - name: Foreground
