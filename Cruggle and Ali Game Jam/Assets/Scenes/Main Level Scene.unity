@@ -13046,6 +13046,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1288487938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5881766285478323036, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+  m_PrefabInstance: {fileID: 1409206595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9343b73b063a443438521019688fa794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1296106549
 GameObject:
   m_ObjectHideFlags: 0
@@ -13851,13 +13862,73 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4358281092802808368, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358281093354700772, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358281093354700775, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358281093679094428, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358281093793705909, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358281094372981057, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5881766285478323032, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_JumpForce
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323032, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_AirControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323032, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323032, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1288487938}
+    - target: {fileID: 5881766285478323032, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Onlanding
+      objectReference: {fileID: 0}
     - target: {fileID: 5881766285478323034, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_Name
       value: Fox Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323034, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323038, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.97912467
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323038, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.46181864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323038, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10751275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881766285478323038, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.30617416
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_RootOrder

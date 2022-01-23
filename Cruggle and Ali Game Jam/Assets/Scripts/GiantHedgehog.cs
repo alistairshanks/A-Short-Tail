@@ -47,9 +47,11 @@ public class GiantHedgehog : MonoBehaviour
             position = myRigidbody.position;
 
             
-            RaycastHit2D triggerInfo = Physics2D.Raycast(triggerDetection.position, Vector2.down, 0.01f);
+            RaycastHit2D triggerInfo = Physics2D.Raycast(triggerDetection.position, Vector2.down, 1f);
             if ( triggerInfo.collider == true && triggerInfo.collider.tag == "HedgehogTrigger")
             {
+                Debug.Log("hit trigger");
+
                 goingLeft = !goingLeft;
 
                 Flip();
