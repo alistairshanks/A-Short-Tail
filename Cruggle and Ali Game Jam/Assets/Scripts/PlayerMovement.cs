@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     int currentHealth;
 
     float horizontalMove = 0f;
+    
 
     public float runSpeed = 40f;
     bool jump = false;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -38,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             animator.SetBool("IsJumping", true);
+            animator.SetBool("TimePassedSleep", false);
+            animator.SetBool("TimePassed", false);
+            timerIsRunning = true;
+            timeRemaining = 10;
+         
 
         }
 
