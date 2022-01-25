@@ -8,6 +8,8 @@ TagManager:
   - Apple
   - HedgehogTrigger
   - NestTrigger
+  - Ground
+  - ProximityTrigger
   layers:
   - Default
   - TransparentFX
@@ -22,8 +24,8 @@ TagManager:
   - Player
   - NestWall
   - GiantHedgehog
-  - 
-  - 
+  - ProximityTrigger
+  - NPC
   - 
   - 
   - 

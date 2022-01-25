@@ -9,19 +9,13 @@ public class JumpPad : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
 
-            animator.SetBool("static", false);
-            animator.SetBool("jump", true);
+            animator.SetBool("Jump", true);
         }
 
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        animator.SetBool("jump", false);
-        animator.SetBool("static", true);
-    }
 }

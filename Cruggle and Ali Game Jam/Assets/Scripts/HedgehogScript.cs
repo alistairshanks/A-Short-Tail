@@ -13,6 +13,8 @@ public class HedgehogScript : MonoBehaviour
     private RaycastHit2D playerInfo;
     public Animator animator;
 
+    public bool isSpiked;
+
     Vector2 position;
 
 
@@ -26,39 +28,40 @@ public class HedgehogScript : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isSpiked && collision.tag == "Player")
+        {
+            CharacterController2D.instance.currentHealth -= 1;
+        }
 
+        else if (!isSpiked && collision.tag == "Player")
+        {
+            HedgehogDead();
+        }
+    }
 
     private void FixedUpdate()
     {
-        if (goingLeft == true)
-        {
-            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, 20f);
-
-        }
-        else
-        {
-
-            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 20f);
-            
-        }
+        playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 20f);
 
         if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
         {
             animator.SetBool("CharacterTrigger", true);
-            
 
+            isSpiked = true;
 
             position.x = transform.localPosition.x;
         }
         else
       
         {
-            animator.SetBool("CharacterTrigger", false);
+
 
             position = myRigidbody.position;
 
             RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
-            RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
+            RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f);
             if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
             {
                 goingLeft = !goingLeft;
@@ -99,6 +102,11 @@ public class HedgehogScript : MonoBehaviour
             transform.localScale = theScale;
 
         }
+
+    void HedgehogDead()
+    {
+        Destroy(gameObject);
+    }
 
 
 }
