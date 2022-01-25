@@ -231,12 +231,12 @@ GameObject:
   - component: {fileID: 8172241437647295108}
   - component: {fileID: 747625460125364163}
   - component: {fileID: 5881766285478323035}
+  - component: {fileID: 5881766285478323037}
   - component: {fileID: 5881766285478323032}
   - component: {fileID: 5881766285478323033}
   - component: {fileID: 5881766285478323039}
   - component: {fileID: 5881766285478323038}
   - component: {fileID: 5881766285478323036}
-  - component: {fileID: 5881766285478323037}
   m_Layer: 0
   m_Name: Fox Character
   m_TagString: Player
@@ -335,6 +335,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &5881766285478323037
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881766285478323034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83e45496c60077345b66ca8bdd8138bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5881766285478323032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,22 +472,3 @@ MonoBehaviour:
   timeRemaining: 10
   timerIsRunning: 0
   runSpeed: 40
---- !u!95 &5881766285478323037
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5881766285478323034}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83e45496c60077345b66ca8bdd8138bc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

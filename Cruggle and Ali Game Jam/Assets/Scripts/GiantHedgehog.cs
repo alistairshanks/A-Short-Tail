@@ -9,6 +9,7 @@ public class GiantHedgehog : MonoBehaviour
     int direction = 1;
     public Transform playerDetection;
     public Transform triggerDetection;
+    public Transform nestTriggerDetection;
     bool isFacingRight = true;
     private RaycastHit2D playerInfo;
     public Animator animator;
@@ -30,50 +31,77 @@ public class GiantHedgehog : MonoBehaviour
 
 
     private void FixedUpdate()
+
     {
-        playerInfo = Physics2D.Raycast(playerDetection.position, Vector2.right * transform.localScale, 20f);
 
-        if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
+        RaycastHit2D nestTriggerInfo = Physics2D.Raycast(nestTriggerDetection.position, Vector2.left, 1f);
+        if (nestTriggerInfo.collider == false || nestTriggerInfo.collider.tag != "NestTrigger")
         {
-            animator.SetBool("CharacterTrigger", true);
 
-            position.x = transform.localPosition.x;
+
+            playerInfo = Physics2D.Raycast(playerDetection.position, Vector2.right * transform.localScale, 20f);
+
+            if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
+            {
+                animator.SetBool("CharacterTrigger", true);
+
+                position.x = transform.localPosition.x;
+            }
+            else
+
+            {
+                animator.SetBool("CharacterTrigger", false);
+
+                position = myRigidbody.position;
+
+
+                RaycastHit2D triggerInfo = Physics2D.Raycast(triggerDetection.position, Vector2.down, 1f);
+                if (triggerInfo.collider == true && triggerInfo.collider.tag == "HedgehogTrigger")
+                {
+                    Debug.Log("hit trigger");
+
+                    goingLeft = true;
+                    isOverLedge = true;
+
+                    Vector3 theScale = transform.localScale;
+                    theScale.x = -2;
+                    transform.localScale = theScale;
+                }
+
+                if (goingLeft)
+                {
+                    position.x = position.x + Time.deltaTime * speed * -direction;
+
+                }
+                else if (goingLeft == false && isOverLedge == false)
+                {
+                    position.x = position.x + Time.deltaTime * speed * direction;
+
+                }
+
+                myRigidbody.MovePosition(position);
+            }
+
+            {
+                animator.SetFloat("Speed", Mathf.Abs(speed));
+            }
+
+
         }
         else
 
         {
-            animator.SetBool("CharacterTrigger", false);
-
+            Debug.Log("nest trigger hit");
             position = myRigidbody.position;
-
             
-            RaycastHit2D triggerInfo = Physics2D.Raycast(triggerDetection.position, Vector2.down, 0.01f);
-            if ( triggerInfo.collider == true && triggerInfo.collider.tag == "HedgehogTrigger")
-            {
-                goingLeft = !goingLeft;
-
-                Flip();
-            }
-
-            if (goingLeft)
-            {
-                position.x = position.x + Time.deltaTime * speed * -direction;
-
-            }
-            else
-            {
-                position.x = position.x + Time.deltaTime * speed * direction;
-
-            }
-
+            position.x = position.x + Time.deltaTime * 0 * direction;
             myRigidbody.MovePosition(position);
+
+            animator.SetFloat("Speed", Mathf.Abs(0));
+
+            animator.SetBool("HedgehogSleep", true);
+
         }
-
-        {
-            animator.SetFloat("Speed", Mathf.Abs(speed));
-        }
-
-
 
     }
 
