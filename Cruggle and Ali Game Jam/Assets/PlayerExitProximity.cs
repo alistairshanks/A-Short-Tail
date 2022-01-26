@@ -9,13 +9,19 @@ public class PlayerExitProximity : MonoBehaviour
     public Transform hedgehogPosition;
     private void Update()
     {
-        transform.position = hedgehogPosition.position;
+        if (thisHedgehog != null)
+        {
+            transform.position = hedgehogPosition.position;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("player is away");
-        if (collision.tag == "Player")
-        thisHedgehog.isSpiked = false;
+        if (thisHedgehog != null)
+        {
+            if (collision.tag == "Player")
+                thisHedgehog.isSpiked = false;
+        }
+        
 
         
 

@@ -12,6 +12,7 @@ public class HedgehogScript : MonoBehaviour
     bool isFacingRight = true;
     private RaycastHit2D playerInfo;
     public Animator animator;
+    public LayerMask myLayerMask;
 
     public bool isSpiked;
 
@@ -43,7 +44,7 @@ public class HedgehogScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 20f);
+        playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 10f, ~myLayerMask);
 
         if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
         {
@@ -54,37 +55,40 @@ public class HedgehogScript : MonoBehaviour
             position.x = transform.localPosition.x;
         }
         else
-      
-        {
-
-
-            position = myRigidbody.position;
-
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
-            RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f);
-            if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
-            {
-                goingLeft = !goingLeft;
-
-                Flip();
-            }
-
-           if (goingLeft)
-            {
-                position.x = position.x + Time.deltaTime * speed * -direction;
-                
-            }
-            else
-            {
-                position.x = position.x + Time.deltaTime * speed * direction;
-
-            }
-
-            myRigidbody.MovePosition(position);
-        }
 
         {
-            animator.SetFloat("Speed", Mathf.Abs(speed));
+            if (isSpiked == false)
+            {
+                animator.SetBool("CharacterTrigger", false);
+
+                position = myRigidbody.position;
+
+                RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f, ~myLayerMask);
+                RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f, ~myLayerMask);
+                if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
+                {
+                    goingLeft = !goingLeft;
+
+                    Flip();
+                }
+
+                if (goingLeft)
+                {
+                    position.x = position.x + Time.deltaTime * speed * -direction;
+
+                }
+                else
+                {
+                    position.x = position.x + Time.deltaTime * speed * direction;
+
+                }
+
+                myRigidbody.MovePosition(position);
+            }
+
+            {
+                animator.SetFloat("Speed", Mathf.Abs(speed));
+            }
         }
 
         
