@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthCollectible : MonoBehaviour
+public class HealthPickup : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
-
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        CharacterController2D controller = other.GetComponent<CharacterController2D>();
-
-        if (controller != null)
-        {
-            if (controller.currentHealth < controller.maxHealth)
-            {
-                controller.ChangeHealth(1);
-                Destroy(gameObject);
-            }
-        }
+        CharacterController2D.instance.ChangeHealth(33);
+        Destroy(gameObject);
     }
 }
