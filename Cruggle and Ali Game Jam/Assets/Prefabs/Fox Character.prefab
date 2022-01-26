@@ -332,7 +332,7 @@ Rigidbody2D:
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &5881766285478323037
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 4358281093354700772}
   m_CeilingCheck: {fileID: 4358281094372981062}
   m_CrouchDisableCollider: {fileID: 0}
+  animator: {fileID: 0}
   m_FacingRight: 1
   maxHealth: 5
   currentHealth: 0

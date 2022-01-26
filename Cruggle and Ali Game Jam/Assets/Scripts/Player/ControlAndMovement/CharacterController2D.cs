@@ -26,6 +26,10 @@ public class CharacterController2D : MonoBehaviour
 	public float maxHealth = 100f;
 	public float health { get { return currentHealth; } }
 	public float currentHealth;
+	public float timeInvincible = 2.0f;
+
+	bool isInvincible;
+	float invincibleTimer;
 
 	[Header("Events")]
 	[Space]
@@ -72,6 +76,15 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
+
+		if (isInvincible)
+        {
+			invincibleTimer -= Time.deltaTime;
+			if (invincibleTimer < 0)
+				isInvincible = false;
+        }
+
+
 	}
 
 
@@ -160,8 +173,14 @@ public class CharacterController2D : MonoBehaviour
 
 	public void ChangeHealth(float amount)
     {
-		if (amount == -33)
+		if (amount < 0)
         {
+			if (isInvincible)
+				return;
+
+			isInvincible = true;
+			invincibleTimer = timeInvincible;
+
 			animator.SetBool("IsJumping", false);
 			animator.SetBool("Damage", true);
 
