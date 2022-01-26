@@ -14,8 +14,14 @@ public class JumpPad : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
 
             animator.SetBool("Jump", true);
+
+            Invoke("CancelMushroomAnimation", 0.5f);
         }
 
     }
 
+    void CancelMushroomAnimation()
+    {
+        animator.SetBool("Jump", false);
+    }
 }
