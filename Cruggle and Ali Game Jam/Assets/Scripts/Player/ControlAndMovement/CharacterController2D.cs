@@ -165,7 +165,7 @@ public class CharacterController2D : MonoBehaviour
 			animator.SetBool("IsJumping", false);
 			animator.SetBool("Damage", true);
 
-			Invoke("CancelDamageAnimation", 1f);
+			Invoke("CancelDamageAnimation", 0.5f);
 
         }
 		currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
