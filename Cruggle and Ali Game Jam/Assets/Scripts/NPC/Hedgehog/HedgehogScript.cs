@@ -16,6 +16,7 @@ public class HedgehogScript : MonoBehaviour
     bool isFalling = false;
     bool isDead = false;
     public GameObject wholeHedgehog;
+    private float damageBounce = 10f;
 
 
     public bool isSpiked;
@@ -37,7 +38,9 @@ public class HedgehogScript : MonoBehaviour
     {
         if (isSpiked && collision.tag == "Player")
         {
-            CharacterController2D.instance.currentHealth -= 1;
+            CharacterController2D.instance.ChangeHealth(-33);
+
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * damageBounce, ForceMode2D.Impulse);
         }
 
         else if (!isSpiked && collision.tag == "Player")
@@ -50,7 +53,7 @@ public class HedgehogScript : MonoBehaviour
     {
         if (isFalling != true && isDead != true)
         {
-            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 10f, ~myLayerMask);
+            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 7.5f, ~myLayerMask);
 
             if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
             {

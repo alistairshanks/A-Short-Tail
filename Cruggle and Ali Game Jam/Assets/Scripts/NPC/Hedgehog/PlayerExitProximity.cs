@@ -19,7 +19,9 @@ public class PlayerExitProximity : MonoBehaviour
         if (thisHedgehog != null)
         {
             if (collision.tag == "Player")
+            {
                 thisHedgehog.isSpiked = false;
+            }
         }
         
 
