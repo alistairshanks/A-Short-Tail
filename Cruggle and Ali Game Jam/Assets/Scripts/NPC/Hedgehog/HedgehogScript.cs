@@ -53,7 +53,7 @@ public class HedgehogScript : MonoBehaviour
     {
         if (isFalling != true && isDead != true)
         {
-            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 10f, ~myLayerMask);
+            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 7.5f, ~myLayerMask);
 
             if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
             {

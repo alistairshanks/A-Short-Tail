@@ -14273,11 +14273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.1
+      value: 41.69
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.5
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47890,6 +47890,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2712297959200757945, guid: 06981205e90c9794f9bc7f1127b0b415, type: 3}
+      propertyPath: m_Size.y
+      value: 5.5503893
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712297959200757945, guid: 06981205e90c9794f9bc7f1127b0b415, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.021816254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712297959200757945, guid: 06981205e90c9794f9bc7f1127b0b415, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.15261638
+      objectReference: {fileID: 0}
     - target: {fileID: 2712297959614258232, guid: 06981205e90c9794f9bc7f1127b0b415, type: 3}
       propertyPath: m_Name
       value: HedgehogEnemyNew
