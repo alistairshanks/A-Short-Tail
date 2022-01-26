@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class HealthColletible : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
