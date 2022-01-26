@@ -13,6 +13,9 @@ public class SquirrelScript2 : MonoBehaviour
     public Animator animator;
     public bool isRunning = false;
 
+    public LayerMask ground;
+    public LayerMask alsoGround;
+
 
    Rigidbody2D myRigidBody;
 
@@ -39,8 +42,8 @@ public class SquirrelScript2 : MonoBehaviour
 
                 {   //send out a ray from groundInfo and a ray from wallInfo, the rays will return true or false if they hit something
 
-                    RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f);
-                    RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, 0.01f);
+                    RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f, ground);
+                    RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f, alsoGround);
 
                     // check if either there is no ground in front of the character (we are at the edge) or there is a wall
                     if (groundInfo.collider == false || wallInfo.collider == true)

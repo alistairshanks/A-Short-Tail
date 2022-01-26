@@ -119,6 +119,10 @@ PrefabInstance:
       propertyPath: myLayerMask.m_Bits
       value: 8192
       objectReference: {fileID: 0}
+    - target: {fileID: 260221664493338271, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 260221664678676794, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
       propertyPath: m_Layer
       value: 14
