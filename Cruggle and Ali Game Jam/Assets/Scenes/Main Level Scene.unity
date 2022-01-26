@@ -14345,11 +14345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.76
+      value: 249.16
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.47
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 8172241437647295108, guid: f58ffaa2ca00d454d84ec8d0256fc4fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49539,7 +49539,7 @@ GameObject:
   - component: {fileID: 1834427775}
   - component: {fileID: 1834427774}
   - component: {fileID: 1834427773}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
