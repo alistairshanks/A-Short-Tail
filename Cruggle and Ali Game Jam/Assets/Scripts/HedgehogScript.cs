@@ -13,6 +13,10 @@ public class HedgehogScript : MonoBehaviour
     private RaycastHit2D playerInfo;
     public Animator animator;
     public LayerMask myLayerMask;
+    bool isFalling = false;
+    bool isDead = false;
+    public GameObject wholeHedgehog;
+
 
     public bool isSpiked;
 
@@ -38,59 +42,71 @@ public class HedgehogScript : MonoBehaviour
 
         else if (!isSpiked && collision.tag == "Player")
         {
-            HedgehogDead();
+            isDead = true;
         }
     }
 
     private void FixedUpdate()
     {
-        playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 10f, ~myLayerMask);
-
-        if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
+        if (isFalling != true && isDead != true)
         {
-            animator.SetBool("CharacterTrigger", true);
+            playerInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 10f, ~myLayerMask);
 
-            isSpiked = true;
-
-            position.x = transform.localPosition.x;
-        }
-        else
-
-        {
-            if (isSpiked == false)
+            if (playerInfo.collider == true && playerInfo.collider.tag == "Player")
             {
-                animator.SetBool("CharacterTrigger", false);
+                animator.SetBool("CharacterTrigger", true);
 
-                position = myRigidbody.position;
+                isSpiked = true;
 
-                RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f, ~myLayerMask);
-                RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f, ~myLayerMask);
-                if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
-                {
-                    goingLeft = !goingLeft;
-
-                    Flip();
-                }
-
-                if (goingLeft)
-                {
-                    position.x = position.x + Time.deltaTime * speed * -direction;
-
-                }
-                else
-                {
-                    position.x = position.x + Time.deltaTime * speed * direction;
-
-                }
-
-                myRigidbody.MovePosition(position);
+                position.x = transform.localPosition.x;
             }
+            else
 
             {
-                animator.SetFloat("Speed", Mathf.Abs(speed));
+                if (isSpiked == false)
+                {
+                    animator.SetBool("CharacterTrigger", false);
+
+                    position = myRigidbody.position;
+
+                    RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.1f, ~myLayerMask);
+                    RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.right * transform.localScale, 0.01f, ~myLayerMask);
+                    if (groundInfo.collider == false || wallInfo.collider == true && playerInfo.collider.tag != "Player")
+                    {
+                        goingLeft = !goingLeft;
+
+                        Flip();
+                    }
+
+                    if (goingLeft)
+                    {
+                        position.x = position.x + Time.deltaTime * speed * -direction;
+
+                    }
+                    else
+                    {
+                        position.x = position.x + Time.deltaTime * speed * direction;
+
+                    }
+
+                    myRigidbody.MovePosition(position);
+                }
+
+                {
+                    animator.SetFloat("Speed", Mathf.Abs(speed));
+                }
             }
         }
 
+        if (isDead == true)
+        {
+            HedgehogDead();
+
+            if (transform.position.y <= -30f)
+            {
+                Destroy(wholeHedgehog);
+            }
+        }
         
         
     }
@@ -109,7 +125,12 @@ public class HedgehogScript : MonoBehaviour
 
     void HedgehogDead()
     {
-        Destroy(gameObject);
+        isFalling = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+       
+        
     }
 
 
