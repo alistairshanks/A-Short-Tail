@@ -34,6 +34,15 @@ public class HedgehogScript : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isSpiked && collision.gameObject.CompareTag("Player"))
+        {
+            CharacterController2D.instance.ChangeHealth(-33);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * damageBounce, ForceMode2D.Impulse);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isSpiked && collision.tag == "Player")
@@ -103,6 +112,7 @@ public class HedgehogScript : MonoBehaviour
 
         if (isDead == true)
         {
+            GetComponent<Rigidbody2D>().drag = 0;
             HedgehogDead();
 
             if (transform.position.y <= -30f)

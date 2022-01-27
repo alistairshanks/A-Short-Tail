@@ -121,11 +121,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 260221664493338271, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
       propertyPath: m_LinearDrag
-      value: 0
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 260221664678676794, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 260221664678676794, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 260221664678676795, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 260221664678676795, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3900173757456035569, guid: 5f20b3483692d014c86788cd71ebf295, type: 3}
       propertyPath: m_RootOrder
