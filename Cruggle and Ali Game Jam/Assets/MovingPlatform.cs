@@ -12,6 +12,7 @@ public class MovingPlatform : MonoBehaviour
     int direction = 1;
     Vector2 position;
     public bool isFacingRight = true;
+    
 
 
     public Transform wallDetection;
@@ -56,6 +57,23 @@ public class MovingPlatform : MonoBehaviour
         transform.localScale = theScale;
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        
+            collision.transform.SetParent(transform);
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        collision.transform.SetParent(null);
+    }
+
+
+
+
 }
 
     
