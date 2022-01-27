@@ -12,6 +12,9 @@ public class MovingPlatform : MonoBehaviour
     int direction = 1;
     Vector2 position;
     public bool isFacingRight = true;
+
+    public PhysicsMaterial2D frictionless;
+    public PhysicsMaterial2D friction1;
     
 
 
@@ -58,7 +61,22 @@ public class MovingPlatform : MonoBehaviour
 
     }
 
-  
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<CapsuleCollider2D>().sharedMaterial = friction1;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<CapsuleCollider2D>().sharedMaterial = frictionless;
+        }
+    }
+
 
 
 
