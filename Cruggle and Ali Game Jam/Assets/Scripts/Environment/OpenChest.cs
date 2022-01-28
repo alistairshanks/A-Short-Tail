@@ -13,6 +13,8 @@ public class OpenChest : MonoBehaviour
 
         Invoke("SpawnChicken", 0.7f);
 
+        Invoke("PlayerWinsGame", 1.5f);
+
     }
 
     void SpawnChicken()
@@ -20,5 +22,9 @@ public class OpenChest : MonoBehaviour
         chicken.SetActive(true);
     }
 
+    void PlayerWinsGame()
+    {
+        GameManager1.instance.PlayerWin();
+    }
 
 }

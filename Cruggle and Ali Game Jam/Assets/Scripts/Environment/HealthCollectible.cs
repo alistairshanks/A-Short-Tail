@@ -9,4 +9,6 @@ public class HealthCollectible : MonoBehaviour
         CharacterController2D.instance.ChangeHealth(33);
         Destroy(gameObject);
     }
+
+  
 }
