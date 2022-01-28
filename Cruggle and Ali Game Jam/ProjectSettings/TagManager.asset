@@ -27,8 +27,8 @@ TagManager:
   - ProximityTrigger
   - NPC
   - Object
-  - 
-  - 
+  - PlatformWall
+  - Squirrel
   - 
   - 
   - 
