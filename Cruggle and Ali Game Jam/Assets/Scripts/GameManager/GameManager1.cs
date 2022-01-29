@@ -12,6 +12,9 @@ public class GameManager1 : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas gameWinCanvas;
 
+    public Transform cutSceneLocation;
+    public Vector3 adjustedCutSceneLocation;
+
     private bool controlsEnabled = false;
 
     private void Awake()
@@ -27,12 +30,21 @@ public class GameManager1 : MonoBehaviour
     {
         CharacterController2D.instance.playerHasWon = true;
         gameWinCanvas.enabled = true;
+        mainCamera.GetComponent<CameraFollow>().enabled = false;
+
+
+        adjustedCutSceneLocation = cutSceneLocation.position;
+        adjustedCutSceneLocation.z = -11;
+        cutSceneLocation.position = adjustedCutSceneLocation;
+        mainCamera.transform.position = cutSceneLocation.position;
+
 
     }
     public void GameOver()
     {
         mainCamera.GetComponent<CameraFollow>().enabled = false;
         gameOverCanvas.enabled = true;
+
 
 
     }
